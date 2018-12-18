@@ -1,0 +1,1 @@
+select name, population, area from World where gdp > '30000000' or population > '25000000'
