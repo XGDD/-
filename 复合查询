@@ -1,0 +1,25 @@
+查询工资高于500或岗位为MANAGER的雇员，同时还要满足他们的姓名首字母为大写的J
+select * from EMP where (sal>500 or job='MANAGER') and ename like 'J%';
+
+按照部门号升序而雇员的工资降序
+select * from EMP order by deptno, sal desc;
+
+使用年薪进行降序排序
+select ename, sal*12+ifnull(comm,0) as '年薪' from EMP order by 年薪 desc;
+
+显示工资最高的员工的名字和工作岗位
+select ename, job from EMP where sal = (select max(sal) from EMP);
+
+显示工资高于平均工资的员工信息
+select ename, sal from EMP where sal>(select avg(sal) from EMP);
+
+
+显示每个部门的平均工资和最高工资
+select deptno, format(avg(sal), 2) , max(sal) from EMP group by deptno;
+
+显示平均工资低于2000的部门号和它的平均工资
+select deptno, avg(sal) as avg_sal from EMP group by deptno having avg_sal<2000;
+
+
+显示每种岗位的雇员总数，平均工资
+select job,count(*), format(avg(sal),2) from EMP group by job;
