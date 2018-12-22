@@ -1,0 +1,1 @@
+select employees.emp_no,salary from employees,salaries where employees.emp_no = salaries.emp_no and hire_date = from_date order by employees.emp_no desc
