@@ -1,0 +1,2 @@
+select dept_emp.emp_no,dept_manager.emp_no as manager_no from dept_emp,dept_manager where dept_emp.dept_no = dept_manager.dept_no and
+dept_manager.to_date = '9999-01-01'  and dept_emp.emp_no <> dept_manager.emp_no
